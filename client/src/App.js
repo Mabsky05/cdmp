@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Map, ReactMapGL, Popup, Marker } from 'react-map-gl';
+import Button from './components/Button'
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import axios from 'axios';
+// import { Button } from 'bootstrap';
 
 
 function App() {
@@ -25,14 +27,12 @@ function App() {
         latitude: 40,
         zoom: 14
       }}
-      style={{width: "100vw", height: "100vh"}}
+      style={{width: "90vw", height: "90vh"}}
       mapStyle="mapbox://styles/mapbox/streets-v9"
       mapboxAccessToken = {'pk.eyJ1IjoibWFic2t5MDUiLCJhIjoiY2wzMWRsbXhoMDk4bTNjcW4wY3Jyb3c2YiJ9.p_wf3CHUlYeePBCasVWubA'}
     >
 
-    
 
-      } )
        {showPopup && (
       <Popup longitude={-100} latitude={40}
         anchor="bottom"
@@ -49,7 +49,7 @@ function App() {
       <img src="./red_dot.png" />
       <div>This is a Marker</div>
       </Marker>
-
+      <Button/>
       </Map>
     
   );

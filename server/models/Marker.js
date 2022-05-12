@@ -17,6 +17,11 @@ const markerSchema = new Schema({
   lat: {
     type: Number,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
+  },
 
 });
 
