@@ -6,16 +6,6 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    markers: [Marker]!
-  }
-
-  type Marker {
-    _id: ID
-    place_name: String
-    username: [User!]
-    long: Number
-    lat: Number
-    createdAt: String
   }
 
   type Auth {
@@ -26,8 +16,6 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): Thought
     me: User
   }
 
