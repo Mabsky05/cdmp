@@ -7,17 +7,23 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import "./index.css"
 
-import Home from './pages/Home';
-import Signup from './pages/Signup';
-import Login from './pages/Login';
-import SingleThought from './pages/SingleThought';
-import Profile from './pages/Profile';
+
+import Signup from './components/Signup';
+import Login from './components/Login';
+import Profile from './components/Profile';
 import Header from './components/Header';
-import Footer from './components/Footer';
 
 import { useState, useEffect } from 'react';
 import { Map, ReactMapGL, Popup, Marker } from 'react-map-gl';
+
+import marker_icon from './red_dot.png';
+import { flash } from 'react-animations'
+
+const blink =  {flash};
+
+ 
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -48,17 +54,6 @@ function App() {
   const [showPopup, setShowPopup] = useState(true);
   const [markers, setMarkers] = useState([])
 
-  useEffect(()=> { 
-    const getMarkers = async() => {
-      try {
-        const res = await axios.get("/markers");
-        setMarkers(res.data); 
-      } catch (err) {
-        console.log(err)
-      }
-      }
-      getMarkers()
-    })
 
   return (
     <ApolloProvider client={client}>
@@ -85,42 +80,34 @@ function App() {
                 path="/profiles/:username"
                 element={<Profile />}
               />
-              <Route 
-                path="/thoughts/:thoughtId"
-                element={<SingleThought />}
-              />
             </Routes>
       <Map
         initialViewState={{
-          longitude: -100,
-          latitude: 40,
-          zoom: 14
+          longitude: 151.21,
+          latitude: -33.87,
+          zoom: 18
         }}
-        style={{width: "100vw", height: "90vh"}}
-        mapStyle="mapbox://styles/mapbox/streets-v9"
+        style={{
+          width: "100vw", 
+          height: "100vh", 
+        }}
+        mapStyle="mapbox://styles/mabsky05/cl37g0j6c001n14o7pejwzy9n"
         mapboxAccessToken = {'pk.eyJ1IjoibWFic2t5MDUiLCJhIjoiY2wzMWRsbXhoMDk4bTNjcW4wY3Jyb3c2YiJ9.p_wf3CHUlYeePBCasVWubA'}
       >
-
+        <Marker 
+        longitude={151.21} 
+        latitude={-33.87} anchor="bottom" >
+        <img className="marker_icon flash" src={marker_icon} alt="marker" />
+        </Marker>
         {showPopup && (
-        <Popup longitude={-100} latitude={40}
-          anchor="bottom"
+        <Popup className="popup" longitude={151.21} latitude={-33.87}
+          anchor="top"
           onClose={() => setShowPopup(false)}>
-            <div className="place_name">Place_name</div>
-            <div className="comment">Comments</div>
-            <div className='user'>User (Logged in)</div>
+            <div className='place_title'>Title</div><br></br>
+            <div className='desc'>Description</div>
+            <div className='rating'>Rating</div>
             <div className='timestamp'>Time Stamp</div>
         </Popup>)}
-
-
-{markers.map(p=> (
-        <Marker 
-        longitude={p.long} 
-        latitude={p.lat} anchor="bottom" >
-        <img src="./red_dot.png" />
-        <div>This is a Marker</div>
-        </Marker>
-))}
-
       </Map>
       </Router>
     </ApolloProvider>

@@ -1705,4 +1705,42 @@ label form [type='radio'] {
   .align-content-center-xl {
     align-content: center;
   }
+
+/* Additional CSS styling below */
+
+
+  .marker_icon {
+    opacity: .3;
+    max-height:50px;
+    height: auto;
+}
+
+
+.title {
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-kerning: auto;
+  color:#000000;
+}
+
+.button {
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-kerning: auto;
+  color:#484848
+}
+
+.button_about {
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-kerning: auto;
+  color:#666666
+}
+
+.popup {
+  opacity: .4;
+  font-size: large;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: 50;
+ 
+  color:#000000;
+}
+
 }
