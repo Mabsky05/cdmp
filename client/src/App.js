@@ -1,24 +1,23 @@
-import { useState, useEffect } from 'react';
-import { Map, ReactMapGL, Popup, Marker } from 'react-map-gl';
-
+import React from 'react';
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
-
 import { setContext } from '@apollo/client/link/context';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import Home from './pages/Home';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
+import SingleThought from './pages/SingleThought';
+import Profile from './pages/Profile';
 import Header from './components/Header';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import Button from './components/Button';
+import Footer from './components/Footer';
 
-
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-// import { Button } from 'bootstrap';
-
+import { useState, useEffect } from 'react';
+import { Map, ReactMapGL, Popup, Marker } from 'react-map-gl';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -44,89 +43,88 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+function App() {
 
-const App = (props) => {
   const [showPopup, setShowPopup] = useState(true);
-  const [marker, setMarkers] = useState([])
+  const [markers, setMarkers] = useState([])
 
-//   useEffect(() => {
-//     const getMarkers = async () => {
-//       try {
-//         const res = await axios.get('./markers');
-//         setMarkers(res.data);
-//       } catch(err) {
-//         console.log(err)
-//       }
-// }})
+  useEffect(()=> { 
+    const getMarkers = async() => {
+      try {
+        const res = await axios.get("/markers");
+        setMarkers(res.data); 
+      } catch (err) {
+        console.log(err)
+      }
+      }
+      getMarkers()
+    })
+
+  return (
+    <ApolloProvider client={client}>
+      <Router>
+          <Header />
+            <Routes>
+              {/* <Route 
+                path="/"
+                element={<Home />}
+              /> */}
+              <Route 
+                path="/login"
+                element={<Login />}
+              />
+              <Route 
+                path="/signup"
+                element={<Signup />}
+              />
+              <Route 
+                path="/me"
+                element={<Profile />}
+              />
+              <Route 
+                path="/profiles/:username"
+                element={<Profile />}
+              />
+              <Route 
+                path="/thoughts/:thoughtId"
+                element={<SingleThought />}
+              />
+            </Routes>
+      <Map
+        initialViewState={{
+          longitude: -100,
+          latitude: 40,
+          zoom: 14
+        }}
+        style={{width: "100vw", height: "90vh"}}
+        mapStyle="mapbox://styles/mapbox/streets-v9"
+        mapboxAccessToken = {'pk.eyJ1IjoibWFic2t5MDUiLCJhIjoiY2wzMWRsbXhoMDk4bTNjcW4wY3Jyb3c2YiJ9.p_wf3CHUlYeePBCasVWubA'}
+      >
+
+        {showPopup && (
+        <Popup longitude={-100} latitude={40}
+          anchor="bottom"
+          onClose={() => setShowPopup(false)}>
+            <div className="place_name">Place_name</div>
+            <div className="comment">Comments</div>
+            <div className='user'>User (Logged in)</div>
+            <div className='timestamp'>Time Stamp</div>
+        </Popup>)}
 
 
-return (
-  <ApolloProvider client={client}>
-    <Router>
-      <div className="flex-column justify-flex-start min-100-vh">
-        <Header />
-        <div className="container">
-          <Routes>
-      
-            <Route 
-              path="/login"
-              element={<Login />}
-            />
-            <Route 
-              path="/signup"
-              element={<Signup />}
-            />
+{markers.map(p=> (
+        <Marker 
+        longitude={p.long} 
+        latitude={p.lat} anchor="bottom" >
+        <img src="./red_dot.png" />
+        <div>This is a Marker</div>
+        </Marker>
+))}
 
-</Routes>
-
-   <Map
-      initialViewState={{
-        longitude: -100,
-        latitude: 40,
-        zoom: 14
-      }}
-      style={{width: "90vw", height: "90vh"}}
-      mapStyle="mapbox://styles/mapbox/streets-v9"
-      mapboxAccessToken = {'pk.eyJ1IjoibWFic2t5MDUiLCJhIjoiY2wzMWRsbXhoMDk4bTNjcW4wY3Jyb3c2YiJ9.p_wf3CHUlYeePBCasVWubA'}
-    >
-
-       {showPopup && (
-      <Popup longitude={-100} latitude={40}
-        anchor="bottom"
-        onClose={() => setShowPopup(false)}>
-          <div className="place_name">Place_name</div>
-          <div className="comment">Comments</div>
-          <div className='user'>User (Logged in)</div>
-          <div className='timestamp'>Time Stamp</div>
-        
-      </Popup>)}
-    
-       <Marker longitude={-100} latitude={40} anchor="bottom" >
-      <img src="./red_dot.png" />
-      <div>This is a Marker</div>
-      </Marker>
-        </Map>
-
-      
-         
-       
-  
-       
-        </div>
-      </div>
-    </Router>
-  </ApolloProvider>
-);
+      </Map>
+      </Router>
+    </ApolloProvider>
+  );
 }
-
-
-
-      {/* <button className='button'>Login</button>
-     <button className='button'>Register</button>
-       <button className='button'>Logout</button> */}
-
-
-
-
 
 export default App;

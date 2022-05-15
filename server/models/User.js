@@ -19,10 +19,10 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  markers: [
+  pins: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Marker',
+      ref: 'Pin',
     },
   ],
 });

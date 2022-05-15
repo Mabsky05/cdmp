@@ -1,4 +1,4 @@
 const User = require('./User');
-const Marker = require('./Marker');
+const Pin = require('./Pin');
 
-module.exports = { User, Marker };
+module.exports = { User, Pin };

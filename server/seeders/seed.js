@@ -1,22 +1,22 @@
 const db = require('../config/connection');
-const { User, Marker } = require('../models');
+const { User, Pin } = require('../models');
 const userSeeds = require('./userSeeds.json');
-const thoughtSeeds = require('./thoughtSeeds.json');
+const pinSeeds = require('./pinSeeds.json');
 
 db.once('open', async () => {
   try {
-    await Marker.deleteMany({});
+    await Pin.deleteMany({});
     await User.deleteMany({});
 
     await User.create(userSeeds);
 
-    for (let i = 0; i < markerSeeds.length; i++) {
-      const { _id, thoughtAuthor } = await Thought.create(thoughtSeeds[i]);
+    for (let i = 0; i < pinSeeds.length; i++) {
+      const { _id, username } = await Pin.create(pinSeeds[i]);
       const user = await User.findOneAndUpdate(
-        { username: thoughtAuthor },
+        { username: username },
         {
           $addToSet: {
-            thoughts: _id,
+            pins: _id,
           },
         }
       );
