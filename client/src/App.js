@@ -94,6 +94,7 @@ function App() {
   //     long: newPlace.long,
   //   };
 
+  //KEY CODE
   //   try {
   //     const res = await axios.post("/pins", newPin);
   //     setPins([...pins, res.data]);
@@ -102,7 +103,8 @@ function App() {
   //     console.log(err);
   //   }
   // };
-
+  
+  //KEY CODE
   // useEffect(() => {
   //   const getPins = async () => {
   //     try {
