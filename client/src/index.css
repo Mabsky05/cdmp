@@ -1722,11 +1722,29 @@ label form [type='radio'] {
   color:#000000;
 }
 
+.title_2 {
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 100;
+  font-kerning: auto;
+  color:#666666;
+}
+
+
+
 .button {
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-kerning: auto;
   color:#484848
 }
+
+.button_submit {
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-kerning: auto;
+  font-size: large;
+  background-color:lightgray;
+  border: #000000;
+}
+
 
 .button_about {
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -1734,13 +1752,20 @@ label form [type='radio'] {
   color:#666666
 }
 
+.form-input {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
 .popup {
   opacity: .4;
   font-size: large;
   font-family:Arial, Helvetica, sans-serif;
   font-weight: 50;
- 
   color:#000000;
+}
+
+.login_text {
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 }

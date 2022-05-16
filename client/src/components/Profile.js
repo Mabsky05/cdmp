@@ -7,6 +7,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
+import { isCompositeType } from 'graphql';
 
 const Profile = () => {
   const { username: userParam } = useParams();
@@ -27,9 +28,8 @@ const Profile = () => {
 
   if (!user?.username) {
     return (
-      <h4>
-        You need to be logged in to see this. Use the navigation links above to
-        sign up or log in!
+      <h4 className="container flex-row justify-space-between-xs justify-center align-center title_2">
+        You're in (insert city name here)
       </h4>
     );
   }

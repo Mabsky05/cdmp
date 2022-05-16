@@ -40,10 +40,7 @@ const Signup = () => {
 
   return (
     <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-          <div className="card-body">
+      <div className="col-12 col-XS-10">
             {data ? (
               <p>
                 Success! You may now head{' '}
@@ -53,7 +50,7 @@ const Signup = () => {
               <form onSubmit={handleFormSubmit}>
                 <input
                   className="form-input"
-                  placeholder="Your username"
+                  placeholder="Username"
                   name="username"
                   type="text"
                   value={formState.name}
@@ -61,7 +58,7 @@ const Signup = () => {
                 />
                 <input
                   className="form-input"
-                  placeholder="Your email"
+                  placeholder="Email"
                   name="email"
                   type="email"
                   value={formState.email}
@@ -69,18 +66,17 @@ const Signup = () => {
                 />
                 <input
                   className="form-input"
-                  placeholder="******"
+                  placeholder="Password"
                   name="password"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
                 />
                 <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
+                  className="btn-block btn-default btn button_submit"
                   type="submit"
                 >
-                  Submit
+                  SIGN UP
                 </button>
               </form>
             )}
@@ -91,8 +87,6 @@ const Signup = () => {
               </div>
             )}
           </div>
-        </div>
-      </div>
     </main>
   );
 };

@@ -14,9 +14,9 @@ const resolvers = {
       const params = username ? { username } : {};
       return Pin.find(params).sort({ createdAt: -1 });
     },
-    // markers: async (parent, { thoughtId }) => {
-    //   return Marker.findOne({ _id: thoughtId });
-    // },
+    pins: async (parent, { pinId }) => {
+      return Pin.findOne({ _id: pinId });
+    },
     // me: async (parent, args, context) => {
     //   if (context.user) {
     //     return User.findOne({ _id: context.user._id }).populate('markers');

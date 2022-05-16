@@ -6,11 +6,11 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
+    pins: [Pin]!
   }
 
   type Pin {
     _id: ID
-    username: String
     title: String
     desc: String
     rating: Float
@@ -26,8 +26,9 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
+    pins(username:String): [Pin]
+    pin(pinId: ID!): Pin
     me: User
-    pin: Pin
   }
 
   type Mutation {

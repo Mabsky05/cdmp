@@ -4,6 +4,7 @@ import {
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
+  useQuery
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -21,7 +22,6 @@ import { Map, ReactMapGL, Popup, Marker } from 'react-map-gl';
 import marker_icon from './red_dot.png';
 import { flash } from 'react-animations'
 
-const blink =  {flash};
 
  
 
@@ -53,6 +53,75 @@ function App() {
 
   const [showPopup, setShowPopup] = useState(true);
   const [markers, setMarkers] = useState([])
+
+  // const myStorage = window.localStorage;
+  // const [currentUsername, setCurrentUsername] = useState(myStorage.getItem("user"));
+  // const [pins, setPins] = useState([]);
+  // const [currentPlaceId, setCurrentPlaceId] = useState(null);
+  // const [newPlace, setNewPlace] = useState(null);
+  // const [title, setTitle] = useState(null);
+  // const [desc, setDesc] = useState(null);
+  // const [star, setStar] = useState(0);
+  // const [viewport, setViewport] = useState({
+  //   latitude: 47.040182,
+  //   longitude: 17.071727,
+  //   zoom: 4,
+  // });
+  // const [showRegister, setShowRegister] = useState(false);
+  // const [showLogin, setShowLogin] = useState(false);
+
+  // const handleMarkerClick = (id, lat, long) => {
+  //   setCurrentPlaceId(id);
+  //   setViewport({ ...viewport, latitude: lat, longitude: long });
+  // };
+
+  // const handleAddClick = (e) => {
+  //   const [longitude, latitude] = e.lngLat;
+  //   setNewPlace({
+  //     lat: latitude,
+  //     long: longitude,
+  //   });
+  // };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const newPin = {
+  //     username: currentUsername,
+  //     title,
+  //     desc,
+  //     rating: star,
+  //     lat: newPlace.lat,
+  //     long: newPlace.long,
+  //   };
+
+  //   try {
+  //     const res = await axios.post("/pins", newPin);
+  //     setPins([...pins, res.data]);
+  //     setNewPlace(null);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   const getPins = async () => {
+  //     try {
+  //       const allPins = await axios.get("/pins");
+  //       setPins(allPins.data);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+  //   getPins();
+  // }, []);
+
+  // const handleLogout = () => {
+  //   setCurrentUsername(null);
+  //   myStorage.removeItem("user");
+  // };
+
+
+
 
 
   return (

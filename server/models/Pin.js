@@ -3,10 +3,10 @@ const dateFormat = require('../utils/dateFormat');
 
 const pinSchema = new Schema({
   
-    username: {
-      type: String,
-      required: true,
-    },
+    // username: {
+    //   type: String,
+    //   required: true,
+    // },
     title: {
       type: String,
       required: true,
