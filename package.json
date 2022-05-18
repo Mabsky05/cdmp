@@ -17,6 +17,8 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@material-ui/icons": "^4.11.3",
     "dotenv": "^16.0.1"
   }
 }

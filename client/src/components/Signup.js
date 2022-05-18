@@ -64,6 +64,25 @@ const Signup = () => {
                   value={formState.email}
                   onChange={handleChange}
                 />
+
+                <input
+                  className="form-input"
+                  placeholder="Longitude"
+                  name="longitude"
+                  type="longitude"
+                  value={formState.longitude}
+                  onChange={handleChange}
+                />
+
+                <input
+                  className="form-input"
+                  placeholder="Latitude"
+                  name="latitude"
+                  type="latitude"
+                  value={formState.latitude}
+                  onChange={handleChange}
+                />
+
                 <input
                   className="form-input"
                   placeholder="Password"

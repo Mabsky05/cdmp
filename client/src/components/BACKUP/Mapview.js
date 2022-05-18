@@ -1,10 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import { useQuery, gql, ApolloClient } from '@apollo/client';
-
 import "../index.css"
-
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 
@@ -28,7 +25,7 @@ function Mapview() {
           width: "100vw", 
           height: "100vh", 
             }
-        }
+        } 
         mapStyle="mapbox://styles/mabsky05/cl38shcoy000314qprx0v9acj"
         mapboxAccessToken = {'pk.eyJ1IjoibWFic2t5MDUiLCJhIjoiY2wzMWRsbXhoMDk4bTNjcW4wY3Jyb3c2YiJ9.p_wf3CHUlYeePBCasVWubA'}
       >

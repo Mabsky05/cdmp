@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import PersonPinIcon from '@mui/icons-material/PersonPin';
 import { useQuery, gql, ApolloClient } from '@apollo/client';
 
 import "../index.css"
@@ -37,7 +37,8 @@ function Mapview() {
         latitude={Auth.getProfile().data.lat} 
         anchor="bottom" 
         >
-        <img className="marker_icon flash" src={marker_icon} alt="marker" />
+        {/* <img className="marker_icon flash" src={marker_icon} alt="marker" /> */}
+        <PersonPinIcon className="PPI" style={{ color: 'red' }} fontSize = "large"/>
         </Marker>
       </Map>
       );
@@ -45,8 +46,8 @@ function Mapview() {
       return (
         <Map className=''
         initialViewState={{
-          longitude: 151.21,
-          latitude: -33.87,
+          longitude: 144.9625,
+          latitude: -37.8177,
           zoom: 18
         }}
         style={{
@@ -58,11 +59,12 @@ function Mapview() {
         mapboxAccessToken = {'pk.eyJ1IjoibWFic2t5MDUiLCJhIjoiY2wzMWRsbXhoMDk4bTNjcW4wY3Jyb3c2YiJ9.p_wf3CHUlYeePBCasVWubA'}
       >
         <Marker 
-        longitude={151.21} 
-        latitude={-33.87} 
+        longitude={144.9625} 
+        latitude={-37.8177} 
         anchor="bottom" 
         >
-        <img className="marker_icon flash" src={marker_icon} alt="marker" />
+        {/* <img className="marker_icon flash" src={marker_icon} alt="marker" /> */}
+        <PersonPinIcon className="PPI" style={{ color: 'red' }} fontSize = "large"/>
         </Marker>
       </Map>
       );
