@@ -5,24 +5,19 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('pins');
+      return User.find();
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('pins');
+      return User.findOne({ username });
     },
-    pin: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Pin.find(params).sort({ createdAt: -1 });
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }, 
+          // { long: context.user.long }
+          );
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
-    pins: async (parent, { pinId }) => {
-      return Pin.findOne({ _id: pinId });
-    },
-    // me: async (parent, args, context) => {
-    //   if (context.user) {
-    //     return User.findOne({ _id: context.user._id }).populate('markers');
-    //   }
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
   },
 
   Mutation: {
@@ -33,6 +28,7 @@ const resolvers = {
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
+      // const long = await User.findOne({ long });
 
       if (!user) {
         throw new AuthenticationError('No user found with this email address');

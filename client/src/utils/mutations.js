@@ -7,6 +7,9 @@ export const LOGIN_USER = gql`
       user {
         _id
         username
+        long
+        lat
+
       }
     }
   }
@@ -19,6 +22,9 @@ export const ADD_USER = gql`
       user {
         _id
         username
+        long
+        lat
+        
       }
     }
   }

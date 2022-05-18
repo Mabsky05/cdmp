@@ -19,6 +19,17 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  long: {
+    type: Number,
+    required: true,
+    default: 151.76,
+  },
+  lat: {
+    type: Number,
+    required: true,
+    default: 25.43,
+  },
+
   pins: [
     {
       type: Schema.Types.ObjectId,

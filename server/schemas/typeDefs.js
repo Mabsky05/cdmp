@@ -6,6 +6,8 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
+    long: Float
+    lat: Float
     pins: [Pin]!
   }
 
