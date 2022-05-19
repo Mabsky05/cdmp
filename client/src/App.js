@@ -5,15 +5,12 @@ import {
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
-  useQuery,
-  gql
+
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import "./index.css"
-
 
 import Signup from './components/Signup';
 import Login from './components/Login';
@@ -21,18 +18,8 @@ import Profile from './components/Profile';
 import Header from './components/Header';
 import Mapview from './components/Mapview'
 
-import Auth from './utils/auth';
-import { QUERY_USER, QUERY_ME } from './utils/queries';
 
-import { useState, useEffect } from 'react';
-import { Map, ReactMapGL, Popup, Marker } from 'react-map-gl';
-
-import marker_icon from './red_dot.png';
-import { flash } from 'react-animations'
-
- 
-
-// Construct our main GraphQL API endpoint
+// Construct GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -51,19 +38,13 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
+  // Setup client to execute the `authLink` middleware prior to making the request to GraphQL API
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
 
-
-
 function App() {
-
-
-
-
 
   return (
     
@@ -88,9 +69,7 @@ function App() {
                 element={<Profile />}
               />
             </Routes>
-
             <Mapview />
-
       </Router>
     </ApolloProvider>
   );

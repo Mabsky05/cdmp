@@ -12,17 +12,6 @@ query users {
 }
 `;
 
-// export const QUERY_USER = gql`
-//   query user($username: String!) {
-//     user(username: $username) {
-//       _id
-//       username
-//       email
-//       long
-//       lat
-//     }
-//   }
-// `;
 
 export const QUERY_ME = gql`
   query me {

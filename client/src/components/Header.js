@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import Auth from '../utils/auth';
 import "../index.css"
 
@@ -14,7 +13,7 @@ const Header = () => {
       <div className="container flex-row justify-space-between-xs justify-center align-center">
         <div>
           <Link className="text" to="/">
-            <h1 className="m-5 title">LARPY</h1>
+            <h1 className="m-5 title">MARP</h1>
           </Link>
   
         </div>
