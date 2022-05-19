@@ -71,7 +71,8 @@ grimdango@gmail.com
 Good time for branching?
 
 Remaining issues (priority):<br>
--Fix mutation for longitude, latitude coordinates when creating new user<br>
+-Use dotenv for JWT token.<br>
+-Fix mutation for longitude, latitude coordinates when creating new user.<br>
 -Fix About Page and Link. Include credits.<br>
 
 Remaining issues (secondary, more complex):<br>
