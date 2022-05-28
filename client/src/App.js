@@ -18,13 +18,14 @@ import Profile from './components/Profile';
 import Header from './components/Header';
 import Mapview from './components/Mapview'
 
+import mapboxgl from 'mapbox-gl/dist/mapbox-gl.css';
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
-// Construct GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
 
-// Construct request middleware that will attach the JWT token to every request as an `authorization` header
+// Attach JWT as token
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
   const token = localStorage.getItem('id_token');
@@ -38,16 +39,14 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  // Setup client to execute the `authLink` middleware prior to making the request to GraphQL API
+  // Execute Authlink prior to connecting to GraphQL 
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
 
 function App() {
-
   return (
-    
     <ApolloProvider client={client} className="Mapquery">
       <Router>
           <Header />

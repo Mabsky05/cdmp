@@ -19,12 +19,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  long: {
+  longitude: {
     type: Number,
     required: true,
     default: 151.76,
   },
-  lat: {
+  latitude: {
     type: Number,
     required: true,
     default: 25.43,

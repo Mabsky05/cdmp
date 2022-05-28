@@ -7,8 +7,8 @@ export const LOGIN_USER = gql`
       user {
         _id
         username
-        long
-        lat
+        longitude
+        latitude
 
       }
     }
@@ -16,14 +16,14 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
+  mutation addUser($username: String!, $email: String!, $longitude: Float!, $latitude: Float!, $password: String!) {
+    addUser(username: $username, email: $email, longitude: $longitude, latitude: $latitude, password: $password) {
       token
       user {
         _id
         username
-        long
-        lat
+        longitude
+        latitude
         
       }
     }

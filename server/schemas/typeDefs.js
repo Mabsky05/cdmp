@@ -6,8 +6,8 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    long: Float
-    lat: Float
+    longitude: Float
+    latitude: Float
     pins: [Pin]!
   }
 
@@ -16,8 +16,8 @@ const typeDefs = gql`
     title: String
     desc: String
     rating: Float
-    long: Float
-    lat: Float
+    longitude: Float
+    latitude: Float
   }
 
   type Auth {
@@ -34,7 +34,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, longitude: Float!, latitude: Float!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addPin(username: String!): Pin
   }

@@ -19,6 +19,14 @@ const Login = (props) => {
     });
   };
 
+  const handleChange2 = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: parseFloat(value),
+    });
+};
+
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();

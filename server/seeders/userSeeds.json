@@ -3,35 +3,35 @@
     "username": "Arthur",
     "email": "art@mail.map",
     "password": "password01",
-    "long": 133.00,
-    "lat": -27.00
+    "longitude": 133.00,
+    "latitude": -27.00
   },
   {
     "username": "Bryan",
     "email": "bry@mail.map",
     "password": "password02",
-    "long": 23.32,
-    "lat": 42.70
+    "longitude": 23.32,
+    "latitude": 42.70
   },
   {
     "username": "Chelsea",
     "email": "che@mail.map",
     "password": "password03",
-    "long": 33.20,
-    "lat": 35.10
+    "longitude": 33.20,
+    "latitude": 35.10
   },
   {
     "username": "Daniel",
     "email": "dan@mail.map",
     "password": "password04",
-    "long": 12.57,
-    "lat": 55.68
+    "longitude": 12.57,
+    "latitude": 55.68
   },
   {
     "username": "Emma",
     "email": "emm@mail.map",
     "password": "password05",
-    "long": 31.23,
-    "lat": 30.03
+    "longitude": 31.23,
+    "latitude": 30.03
   }
 ]

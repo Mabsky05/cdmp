@@ -6,23 +6,32 @@ import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
-const Signup = () => {
+const Signup = (e) => {
   const [formState, setFormState] = useState({
     username: '',
     email: '',
+    longitude: '',
+    latitude:'',
     password: '',
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
-  const handleChange = (event) => {
+    const handleChange = (event) => {
     const { name, value } = event.target;
-
     setFormState({
       ...formState,
       [name]: value,
     });
-  };
+  }
 
+    const handleChange2 = (event) => {
+      const { name, value } = event.target;
+      setFormState({
+        ...formState,
+        [name]: parseFloat(value),
+      });
+  };
+   
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
@@ -30,6 +39,7 @@ const Signup = () => {
     try {
       const { data } = await addUser({
         variables: { ...formState },
+        
       });
 
       Auth.login(data.addUser.token);
@@ -69,18 +79,18 @@ const Signup = () => {
                   className="form-input"
                   placeholder="Longitude"
                   name="longitude"
-                  type="longitude"
+                  type="number"
                   value={formState.longitude}
-                  onChange={handleChange}
+                  onChange={handleChange2}
                 />
 
                 <input
                   className="form-input"
                   placeholder="Latitude"
                   name="latitude"
-                  type="latitude"
+                  type="number"
                   value={formState.latitude}
-                  onChange={handleChange}
+                  onChange={handleChange2}
                 />
 
                 <input

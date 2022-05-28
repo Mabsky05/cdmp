@@ -1,4 +1,4 @@
-import { Usequery, gql } from '@apollo/client';
+import { gql } from '@apollo/client';
 
 export const QUERY_USER = gql`
 query users {
@@ -6,8 +6,8 @@ query users {
     _id
     username
     email
-    long
-    lat
+    longitude
+    latitude
   }
 }
 `;

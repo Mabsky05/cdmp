@@ -2,20 +2,19 @@ import React from 'react';
 import PersonPinIcon from '@mui/icons-material/PersonPin';
 import "../index.css"
 import Auth from '../utils/auth';
-import { useState, useEffect } from 'react';
 import { Map, Marker } from 'react-map-gl';
-
-
+import mapboxgl from 'mapbox-gl/dist/mapbox-gl.css';
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
 function Mapview() {
-
+  mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
   function Mapselect() {
     if (Auth.loggedIn()) {
       return (
         <Map className=''
         initialViewState={{
-          longitude: Auth.getProfile().data.long,
-          latitude: Auth.getProfile().data.lat,
+          longitude: Auth.getProfile().data.longitude,
+          latitude: Auth.getProfile().data.latitude,
           zoom: 18,
           
         }}
@@ -28,10 +27,9 @@ function Mapview() {
         mapboxAccessToken = {'pk.eyJ1IjoibWFic2t5MDUiLCJhIjoiY2wzMWRsbXhoMDk4bTNjcW4wY3Jyb3c2YiJ9.p_wf3CHUlYeePBCasVWubA'}
       >
         <Marker 
-        longitude={Auth.getProfile().data.long} 
-        latitude={Auth.getProfile().data.lat} 
-        anchor="bottom" 
-        
+        longitude={Auth.getProfile().data.longitude} 
+        latitude={Auth.getProfile().data.latitude} 
+        anchor="bottom"        
         >
         <PersonPinIcon className="PPI" style={{ color: 'red' }} fontSize = "large"/>
         </Marker>
@@ -57,9 +55,7 @@ function Mapview() {
         <Marker 
         longitude={144.9625} 
         latitude={-37.8177} 
-        anchor="bottom" 
-        
-        
+        anchor="bottom"  
         >
         <PersonPinIcon className="PPI" style={{ color: 'red' }} fontSize = "large"/>
         </Marker>
@@ -68,6 +64,7 @@ function Mapview() {
     }
   }
   return Mapselect()
+  
 }
 
 export default Mapview;
