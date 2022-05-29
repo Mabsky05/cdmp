@@ -31,6 +31,10 @@ MongoDB Atlas <Br>
 React <Br>
 <Br>
 
+IMPORTANT: Register with Mapbox.com to procure an access token, and copy these to 
+the mapboxAccessToken variable in Mapview.js. Process.env is currently not working;
+Haven't found a workaround for this. 
+
 ### NPM Dependencies
 See package.json for client, server and root files. 
 <Br>
@@ -67,6 +71,18 @@ grimdango@gmail.com
 <br><br>
 
 ## Log
+
+
+### 28/05/22 
+-Login/out working seamlessly. 
+-Added about page with credits.  
+-Deployed fully working version to heroku.
+-Removed mapbox access token from code.  
+-Happy times!
+
+### 28/05/22 
+Login mutations fixed. Pruned dead code. 
+
 ### 20/05/22 
 Good time for branching?
 
@@ -78,9 +94,6 @@ Remaining issues (secondary, more complex):<br>
 -Create centering toggle.<br>
 -Draw routes to nearby locations.<br> 
 -Add day/night mode via toggle.<br><br>
-
-### 28/05/22 
-Login mutations fixed. Pruned dead code. 
 
 ### 20/05/22 
 Readme uploaded. 
