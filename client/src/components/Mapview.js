@@ -4,7 +4,12 @@ import "../index.css"
 import Auth from '../utils/auth';
 import { Map, Marker } from 'react-map-gl';
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.css';
-mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+
+// require('dotenv').config();
+
+const mapboxAccessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+console.log(mapboxAccessToken)
+console.log(process.env.REACT_APP_MAPBOX_TOKEN)
 
 function Mapview() {
   mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
@@ -50,6 +55,7 @@ function Mapview() {
         }
         mapStyle="mapbox://styles/mabsky05/cl38shcoy000314qprx0v9acj"
         mapboxAccessToken = {'pk.eyJ1IjoibWFic2t5MDUiLCJhIjoiY2wzMWRsbXhoMDk4bTNjcW4wY3Jyb3c2YiJ9.p_wf3CHUlYeePBCasVWubA'}
+        // mapboxAccessToken= {mapboxAccessToken}
       >
 
         <Marker 

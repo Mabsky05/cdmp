@@ -1705,13 +1705,11 @@ label form [type='radio'] {
 
 /* Additional CSS styling below */
 
-
   .marker_icon {
     opacity: .3;
     max-height:50px;
     height: auto;
 }
-
 
 .title {
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -1775,6 +1773,14 @@ font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
 }
 
+ul {
+  list-style-type: none;
+}
+
+.credits_line {
+  color:#666666;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
 
 
 }

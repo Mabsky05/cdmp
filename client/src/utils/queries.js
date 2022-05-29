@@ -12,7 +12,6 @@ query users {
 }
 `;
 
-
 export const QUERY_ME = gql`
   query me {
     me {
