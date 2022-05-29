@@ -14,7 +14,6 @@ import "./index.css"
 
 import Signup from './components/Signup';
 import Login from './components/Login';
-import Profile from './components/Profile';
 import Header from './components/Header';
 import Mapview from './components/Mapview'
 
@@ -58,14 +57,6 @@ function App() {
               <Route 
                 path="/signup"
                 element={<Signup />}
-              />
-              <Route 
-                path="/me"
-                element={<Profile />}
-              />
-              <Route 
-                path="/profiles/:username"
-                element={<Profile />}
               />
             </Routes>
             <Mapview />

@@ -72,13 +72,15 @@ Good time for branching?
 
 Remaining issues (priority):<br>
 -Use dotenv for JWT token.<br>
--Fix mutation for longitude, latitude coordinates when creating new user.<br>
 -Fix About Page and Link. Include credits.<br>
 
 Remaining issues (secondary, more complex):<br>
 -Create centering toggle.<br>
 -Draw routes to nearby locations.<br> 
 -Add day/night mode via toggle.<br><br>
+
+### 28/05/22 
+Login mutations fixed. Pruned dead code. 
 
 ### 20/05/22 
 Readme uploaded. 
