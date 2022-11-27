@@ -6,7 +6,11 @@
 
 
 ## Summary
-MERN-based mapping API
+MERN-based mapping API <br>
+
+IMPORTANT: As of 28 November 2022 app will no longer be accessible due to Heroku changes. 
+App to be cloned and hosted on Firebase. 
+
 <Br><Br>
 
 ## Description 
@@ -72,6 +76,8 @@ grimdango@gmail.com
 
 ## Log
 
+### 28/05/22 
+-Project to be discontinued due to Heroku updates, cloning repo for Firebase hosting. 
 
 ### 28/05/22 
 -Login/out working seamlessly. 

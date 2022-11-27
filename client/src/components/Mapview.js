@@ -29,7 +29,8 @@ function Mapview() {
             }
         }
         mapStyle="mapbox://styles/mabsky05/cl38shcoy000314qprx0v9acj"
-        mapboxAccessToken = {MAPBOX_ACCESS_TOKEN}
+        mapboxAccessToken = "pk.eyJ1IjoibWFic2t5MDUiLCJhIjoiY2wzMWRsbXhoMDk4bTNjcW4wY3Jyb3c2YiJ9.p_wf3CHUlYeePBCasVWubA"
+
       >
         <Marker 
         longitude={Auth.getProfile().data.longitude} 
@@ -54,7 +55,8 @@ function Mapview() {
             }
         }
         mapStyle="mapbox://styles/mabsky05/cl38shcoy000314qprx0v9acj"
-        mapboxAccessToken = {MAPBOX_ACCESS_TOKEN}
+        mapboxAccessToken = "pk.eyJ1IjoibWFic2t5MDUiLCJhIjoiY2wzMWRsbXhoMDk4bTNjcW4wY3Jyb3c2YiJ9.p_wf3CHUlYeePBCasVWubA"
+
       >
 
         <Marker 
